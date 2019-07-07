@@ -4,9 +4,11 @@ using Domain;
 
 namespace Application
 {
+    //ゲームを表す
     class Game
     {
-        public Game(IView view, Random rand)
+        //ジャンケンゲームを開始する
+        public Game(IView view, AiHumanCreator aiHumanCreator)
         {
             view.OnInput += input =>
             {
@@ -17,7 +19,7 @@ namespace Application
                     return;
                 }
                 var player = new Human<StandardRule>(new StandardRule(), (HandKind)handKind);
-                var aiHumen = new AiHumanCreator(rand).CreateAiHumen(new StandardRule(), 2);
+                var aiHumen = aiHumanCreator.CreateAiHumen(new StandardRule(), 2);
                 view.ShowResult(
                     StringConverter.ResultKindToString(
                         player.KnowResult(aiHumen)
