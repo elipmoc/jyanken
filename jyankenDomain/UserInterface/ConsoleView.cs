@@ -8,22 +8,22 @@ namespace UserInterface
     {
         public event Action<string> OnInput;
 
-        //再入力を促す
-        public void ShowTryRequest()
-        {
-            Console.WriteLine("もう一度入力してください");
-            ShowRequest();
-        }
-
-        //入力を促す
+        // 入力を促す
         public void ShowRequest()
         {
             Console.WriteLine("ジャンケンの手を選んでください（1=グー,2=チョキ,3=パー）");
             var input = Console.ReadLine();
             OnInput(input);
         }
+        
+        // 再入力を促す
+        public void ShowTryRequest()
+        {
+            Console.WriteLine("もう一度入力してください");
+            ShowRequest();
+        }
 
-        //勝敗を出力する
+        // 勝敗を出力する
         public void ShowResult(string result, string myHand, IEnumerable<string> aiHands)
         {
             Console.WriteLine("あなた:" + myHand);

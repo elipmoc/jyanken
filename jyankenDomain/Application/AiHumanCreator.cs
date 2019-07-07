@@ -9,6 +9,8 @@ namespace Application
         private readonly Random rand;
 
         public AiHumanCreator(Random rand) => this.rand = rand;
+
+        // Aiの人間を複数生成する
         public Human<Rule>[] CreateAiHumen<Rule>(Rule rule, uint size) where Rule : IRule
         {
             var handKinds = new HandKind[] { HandKind.Guu, HandKind.Tyoki, HandKind.Paa };

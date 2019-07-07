@@ -1,13 +1,12 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Domain;
 
 namespace Application
 {
-    //ゲームを表す
+    // ゲームを表す
     class Game
     {
-        //ジャンケンゲームを開始する
+        // ジャンケンゲームを開始する
         public Game(IView view, AiHumanCreator aiHumanCreator)
         {
             view.OnInput += input =>
